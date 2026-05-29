@@ -52,6 +52,10 @@ public class Cliente {
         return ofertas;
     }
 
+    public int getCantidadOfertas() {
+        return cantidadOfertas;
+    }
+
     public String getRuc() {
         return ruc;
     }
@@ -74,5 +78,37 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public Rubro getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(Rubro rubro) {
+        this.rubro = rubro;
     }
 }

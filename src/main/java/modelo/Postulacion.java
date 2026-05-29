@@ -9,50 +9,53 @@ public class Postulacion {
 
     private Oferta oferta;
 
-    public Postulacion(){
+    public Postulacion() {
     }
 
-    public Postulacion(Date fecha, boolean anulado, Oferta oferta){
+    public Postulacion(Date fecha, boolean anulado, Oferta oferta) {
         this.fecha = fecha;
         this.anulado = anulado;
         this.oferta = oferta;
     }
 
-    public boolean anular(){
-        anulado = true;
-        fechaAnulacion = new Date();
-        return true;
+    public boolean anular() {
+        if (!anulado) {
+            anulado = true;
+            fechaAnulacion = new Date();
+            return true;
+        }
+        return false;
     }
 
-    public Date getFecha(){
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha){
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public boolean isAnulado(){
+    public boolean isAnulado() {
         return anulado;
     }
 
-    public void setAnulado(boolean anulado){
-        this.anulado =anulado;
+    public void setAnulado(boolean anulado) {
+        this.anulado = anulado;
     }
 
-    public Date getFechaAnulacion(){
+    public Date getFechaAnulacion() {
         return fechaAnulacion;
     }
 
-    public void setFechaAnulacion(Date fechaAnulacion){
+    public void setFechaAnulacion(Date fechaAnulacion) {
         this.fechaAnulacion = fechaAnulacion;
     }
 
-    public Oferta getOferta(){
+    public Oferta getOferta() {
         return oferta;
     }
 
-    public void setOferta(Oferta oferta){
+    public void setOferta(Oferta oferta) {
         this.oferta = oferta;
     }
 }

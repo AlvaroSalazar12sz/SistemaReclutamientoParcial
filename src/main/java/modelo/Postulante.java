@@ -55,6 +55,10 @@ public class Postulante {
         return postulaciones;
     }
 
+    public int getCantidadPostulaciones() {
+        return cantidadPostulaciones;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -67,11 +71,43 @@ public class Postulante {
         return apellidos;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public Date getNacimiento() {
+        return nacimiento;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
     public GradoEstudio getGradoEstudio() {
         return gradoEstudio;
     }
 
-    public int getCantidadPostulaciones() {
-        return cantidadPostulaciones;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setNacimiento(Date nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }

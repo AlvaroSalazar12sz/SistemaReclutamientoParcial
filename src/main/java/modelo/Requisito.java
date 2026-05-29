@@ -1,26 +1,29 @@
 package modelo;
 
-public class Requisito{
+public class Requisito {
     private int orden;
     private String descripcion;
     private boolean estado;
-    
-    public Requisito(){
+
+    public Requisito() {
     }
-    
-    public Requisito(int orden,String descripcion,boolean estado){
+
+    public Requisito(int orden, String descripcion, boolean estado) {
         this.orden = orden;
         this.descripcion = descripcion;
         this.estado = estado;
     }
-    public boolean habilitar(){
+
+    public boolean habilitar() {
         estado = true;
         return true;
     }
-    public boolean deshabilitar(){
+
+    public boolean deshabilitar() {
         estado = false;
         return true;
     }
+
     public int getOrden() {
         return orden;
     }
