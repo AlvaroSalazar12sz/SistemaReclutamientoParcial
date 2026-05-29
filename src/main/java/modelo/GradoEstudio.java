@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author vayit
- */
-public class GradoEstudio {
+public class GradoEstudio{
+    private String descripcion;
     
+    public GradoEstudio(){
+    }
+    public GradoEstudio(String descripcion){
+        this.descripcion = descripcion;
+    }
+    public String getDescripcion(){
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion){
+        this.descripcion = descripcion;
+    }
 }
