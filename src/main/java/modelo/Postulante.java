@@ -35,12 +35,17 @@ public class Postulante {
         return true;
     }
 
-    public boolean postular(Oferta oferta) {
+    public boolean postular(Oferta oferta, String rutaCV) {
+        if (rutaCV == null || rutaCV.equals("")) {
+            return false;
+        }
+
         if (cantidadPostulaciones < postulaciones.length) {
-            postulaciones[cantidadPostulaciones] = new Postulacion(new Date(), false, oferta);
+            postulaciones[cantidadPostulaciones] = new Postulacion(new Date(), false, oferta, rutaCV);
             cantidadPostulaciones++;
             return true;
         }
+
         return false;
     }
 

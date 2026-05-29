@@ -6,16 +6,18 @@ public class Postulacion {
     private Date fecha;
     private boolean anulado;
     private Date fechaAnulacion;
+    private String rutaCV;
 
     private Oferta oferta;
 
     public Postulacion() {
     }
 
-    public Postulacion(Date fecha, boolean anulado, Oferta oferta) {
+    public Postulacion(Date fecha, boolean anulado, Oferta oferta, String rutaCV) {
         this.fecha = fecha;
         this.anulado = anulado;
         this.oferta = oferta;
+        this.rutaCV = rutaCV;
     }
 
     public boolean anular() {
@@ -57,5 +59,13 @@ public class Postulacion {
 
     public void setOferta(Oferta oferta) {
         this.oferta = oferta;
+    }
+
+    public String getRutaCV() {
+        return rutaCV;
+    }
+
+    public void setRutaCV(String rutaCV) {
+        this.rutaCV = rutaCV;
     }
 }

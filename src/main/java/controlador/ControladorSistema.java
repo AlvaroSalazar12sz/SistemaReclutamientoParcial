@@ -31,6 +31,11 @@ public class ControladorSistema {
         arregloOfertas = new ArregloOfertas();
     }
 
+    private String generarClave(String prefijo) {
+        int numero = (int) (Math.random() * 9000) + 1000;
+        return prefijo + numero;
+    }
+
     public void iniciar() {
         int opcion;
 
@@ -132,7 +137,7 @@ public class ControladorSistema {
         String email = vista.leerTexto("Ingrese correo institucional: ");
         String contacto = vista.leerTexto("Ingrese persona de contacto: ");
         String telefono = vista.leerTexto("Ingrese telefono: ");
-        String clave = "EMP" + ruc;
+        String clave = generarClave("EMP");
 
         String nombreRubro = vista.leerTexto("Ingrese rubro de la empresa: ");
         Rubro rubro = arregloRubros.buscar(nombreRubro);
@@ -155,7 +160,7 @@ public class ControladorSistema {
         arregloClientes.agregar(cliente);
 
         vista.mostrarMensaje("Cliente registrado correctamente.");
-        vista.mostrarMensaje("Clave generada: " + clave);
+        vista.mostrarMensaje("Clave generada y enviada al correo: " + clave);
     }
 
     public void registrarPostulante() {
@@ -171,7 +176,7 @@ public class ControladorSistema {
         String nombres = vista.leerTexto("Ingrese nombres: ");
         String apellidos = vista.leerTexto("Ingrese apellidos: ");
         String direccion = vista.leerTexto("Ingrese direccion completa: ");
-        String clave = "POS" + email;
+        String clave = generarClave("POS");
 
         String gradoDescripcion = vista.leerTexto("Ingrese grado de estudios: ");
         GradoEstudio grado = new GradoEstudio(gradoDescripcion);
@@ -189,7 +194,7 @@ public class ControladorSistema {
         arregloPostulantes.agregar(postulante);
 
         vista.mostrarMensaje("Postulante registrado correctamente.");
-        vista.mostrarMensaje("Clave generada: " + clave);
+        vista.mostrarMensaje("Clave generada y enviada al email: " + clave);
     }
 
     public void registrarOferta() {
@@ -267,12 +272,15 @@ public class ControladorSistema {
             return;
         }
 
-        boolean resultado = postulante.postular(oferta);
+        String rutaCV = vista.leerTexto("Ingrese nombre o ruta del CV: ");
+
+        boolean resultado = postulante.postular(oferta, rutaCV);
 
         if (resultado) {
             vista.mostrarMensaje("Postulacion registrada correctamente.");
+            vista.mostrarMensaje("CV adjuntado: " + rutaCV);
         } else {
-            vista.mostrarMensaje("No se pudo registrar la postulacion.");
+            vista.mostrarMensaje("No se pudo registrar la postulacion. El CV es obligatorio.");
         }
     }
 
@@ -300,7 +308,8 @@ public class ControladorSistema {
             vista.mostrarMensaje((i + 1) + ". "
                     + postulaciones[i].getOferta().getPuesto()
                     + " | Fecha: " + postulaciones[i].getFecha()
-                    + " | Estado: " + estado);
+                    + " | Estado: " + estado
+                    + " | CV: " + postulaciones[i].getRutaCV());
         }
 
         int numero = vista.leerEntero("Ingrese numero de postulacion a anular: ");
@@ -370,6 +379,8 @@ public class ControladorSistema {
                     + postulaciones[i].getOferta().getPuesto()
                     + " | Fecha: " + postulaciones[i].getFecha()
                     + " | Estado: " + estado);
+
+            vista.mostrarMensaje("   CV: " + postulaciones[i].getRutaCV());
 
             if (postulaciones[i].isAnulado()) {
                 vista.mostrarMensaje("   Fecha de anulacion: "
